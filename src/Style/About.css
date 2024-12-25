@@ -1,0 +1,33 @@
+.about {
+    background-color: black;
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    padding: 10px 80px 10px 80px;
+}
+
+.intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.resume{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.social{
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    width: 30px;
+    margin-left: 300px;
+}
+
+
+
+
+
