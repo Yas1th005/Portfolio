@@ -8,10 +8,12 @@ import {
 } from "framer-motion";
 import '../Style/About.css'
 import { useRef } from "react";
-import vr1 from "../Images/vr1.jpg"
-import vr2 from "../Images/vr2.jpg"
-import vr3 from "../Images/vr3.jpg"
-import vr4 from "../Images/vr4.jpeg"
+
+import vr1 from "../Images/Landing/vr1.jpeg"
+import vr2 from "../Images/Landing/vr2.jpeg"
+import vr3 from "../Images/Landing/vr3.jpeg"
+import vr4 from "../Images/Landing/vr4.jpeg"
+
 import { ThreeDCardDemo } from "../Each/ProfilePic";
 import { TextGenerateEffectDemo } from "../Each/TextGenerate";
 import linkedin from "../Images/linkedin.png"
@@ -23,20 +25,20 @@ import TechStack from "./TechStack";
 
 export const Landing = () => {
   return (
-    <div className="bg-black w-[100vw]">
+    <div className="bg-black">
       <ReactLenis
         root
         options={{
           // Learn more -> https://github.com/darkroomengineering/lenis?tab=readme-ov-file#instance-settings
           lerp: 0.05,
-          //   infinite: true,
-          //   syncTouch: true,
+            // infinite: true,
+            // syncTouch: true,
         }}
       >
         {/* <Nav /> */}
         <Hero />
         <Schedule />
-        <div className="h-[100vh]"><Education/></div>
+        
         
       </ReactLenis>
     </div>
@@ -89,7 +91,7 @@ const CenterImage = () => {
         backgroundSize,
         opacity,
         backgroundImage:
-          "url(https://img.freepik.com/free-photo/descomposition-person-wearing-vr-glasses_23-2149089509.jpg?t=st=1733723829~exp=1733727429~hmac=3f789393bf90de63ec0ec6e20a23262ed1aa9694ed78ea47bee1182456bbc95c&w=1380)",
+          "url(https://rhythmagency.com/media/zawhb14d/28229-1.png?width=2880&height=1620&quality=60&v=1da8c273afb93b0)",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
@@ -108,7 +110,7 @@ const ParallaxImages = () => {
         className="w-1/3"
       />
       <ParallaxImg
-        src={vr2}
+        src={vr3}
         alt="An example of a space launch"
         start={200}
         end={-250}
@@ -122,7 +124,7 @@ const ParallaxImages = () => {
         className="ml-auto w-1/3"
       />
       <ParallaxImg
-        src={vr3}
+        src={vr2}
         alt="Orbiting satellite"
         start={0}
         end={-500}
@@ -161,7 +163,7 @@ const Schedule = () => {
   return (
     <section
       id="launch-schedule"
-      className="mx-auto px-4 py-48 text-white w-[90vw]"
+      className="mx-auto px-4 py-12 text-white w-[90vw]"
     >
       <ScheduleItem/>
     </section>
@@ -177,6 +179,7 @@ const ScheduleItem = () => {
       initial={{ y: 48, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
+      viewport={{ once: true }}
       className="mb-9 flex flex-cols items-center justify-between border-b border-zinc-800 px-3 pb-9"
     >
       <div className='intro'>
@@ -184,6 +187,7 @@ const ScheduleItem = () => {
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
+        viewport={{ once: true }}
         >
           <ThreeDCardDemo/>
         </motion.div>
@@ -196,6 +200,7 @@ const ScheduleItem = () => {
           initial={{ y: 48, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.75 }}
+          viewport={{ once: true }}
           
           >
             <p className='text-white font-fredoka text-xl'>Founder @SpectoV | XR Developer | Innovator in Education Tech🚀</p>
@@ -263,6 +268,7 @@ const ScheduleItem = () => {
   initial={{y:48 , opacity:0}}
   whileInView={{y:0 , opacity:1}}
   transition={{ease:easeInOut, duration:2}}
+  viewport={{ once: true }}
   >
     <Card title="Starting a startup" description="It involves identifying a problem, developing a unique solution, and building a Minimum Viable Product (MVP) to test your idea. Gather feedback, refine your product, and scale strategically while securing funding as needed. Collaboration and adaptability are key to success."/>
   </motion.div>
@@ -270,6 +276,7 @@ const ScheduleItem = () => {
   initial={{y:48 , opacity:0}}
   whileInView={{y:0 , opacity:1}}
   transition={{ease:easeInOut, duration:2}}
+  viewport={{ once: true }}
   >
   <Card title="Managing academics" description="Along with a startup requires effective time management and prioritization. Allocate dedicated time slots for studies and startup tasks, set clear goals, and focus on high-impact activities. Leverage your academic learning to benefit your startup and seek support from mentors or teammates to share responsibilities."/>
   </motion.div>
@@ -277,6 +284,7 @@ const ScheduleItem = () => {
   initial={{y:48 , opacity:0}}
   whileInView={{y:0 , opacity:1}}
   transition={{ease:easeInOut, duration:2}}
+  viewport={{ once: true }}
   >
   <Card title="Seed funding" description="It is the initial capital raised by a startup to develop its product, conduct market research, and validate its business model. It typically comes from angel investors, venture capitalists, or friends and family in exchange for equity or convertible debt. This funding helps startups move from the idea stage to a viable product or service."/>
   </motion.div>
@@ -285,6 +293,7 @@ const ScheduleItem = () => {
   initial={{y:48 , opacity:0}}
   whileInView={{y:0 , opacity:1}}
   transition={{ease:easeInOut, duration:2}}
+  viewport={{ once: true }}
   >
   <Card title="To find investors" description="Network at startup events, use platforms like AngelList or LinkedIn, and seek referrals from your network. Join accelerators or incubators for funding opportunities and prepare a strong pitch to showcase your startup's potential."/>
   </motion.div>
@@ -298,12 +307,14 @@ const ScheduleItem = () => {
   initial={{y:48 , opacity:0}}
   whileInView={{y:0 , opacity:1}}
   transition={{ease:easeInOut, duration:2}}
+  viewport={{ once: true }}
   className="mt-[50px]"
 >
   <motion.h1
           initial={{ y: 48, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ ease: "easeInOut", duration: 0.75 }}
+          viewport={{ once: true }}
           className="text-4xl font-bold text-[#00c4ff] tracking-wider"
         >
           TechStack

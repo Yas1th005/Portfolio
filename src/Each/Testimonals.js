@@ -8,8 +8,10 @@ export function AnimatedTestimonialsDemo() {
 
   const testimonials = [
     {
-      quote:
-        "Course Representative in Computer Networks and Database Management System",
+      quote2:"CGPA: 9.14",
+      quote3:"Course Representative in",
+      quote4:"Computer Networks and",
+      quote5:"Database Management System.",
       name: "Vellore Institute of Technology",
       src: abc,
     },

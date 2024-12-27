@@ -321,7 +321,7 @@ function Certificates() {
 //   const isDesktop = useMediaQuery('(min-width: 768px)');
   return (
     <>
-      <div className=" md:grid grid-cols-12 p-2 items-center justify-center w-full h-full relative">
+      <div className=" md:grid grid-cols-12 p-2 relative">
         <div className="rounded-sm col-span-5">
           {tabs.map((tab, index) => (
             <motion.div
@@ -334,7 +334,7 @@ function Certificates() {
             `}
               onClick={() => handleClick(index)}>
               <h3
-                className={`p-4 cursor-pointer transition-all font-semibold  dark:text-white text-black bg-[#F2F2F2] dark:hover:text-white hover:text-black flex justify-between items-center ${
+                className={`p-4 cursor-pointer transition-all font-semibold  dark:text-white text-black bg-[#F2F2F2] dark:hover:text-white hover:text-black ${
                   activeIndex === index
                     ? 'bg-[#F2F2F2] '
                     : 'dark:bg-[#11112b] bg-white'
@@ -374,7 +374,7 @@ function Certificates() {
                 <>
                   <AnimatePresence mode="popLayout">
                     {activeIndex === index && (
-                      <motion.div className="p-4 h-[400px] overflow-hidden col-span-7">
+                      <motion.div className="p-4 h-[300px] w-[500px] overflow-hidden col-span-7 my-auto mx-auto">
                         <motion.img
                           src={tab.imageUrl}
                           alt={tab.title}

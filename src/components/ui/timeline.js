@@ -26,13 +26,14 @@ export const Timeline = ({
 
   return (
     (<div
-      className="w-[100vw] bg-black dark:bg-neutral-950 text-white font-fredoka md:px-10 mb-[0px]"
+      className="bg-black dark:bg-neutral-950 text-white font-fredoka md:px-10 mb-[0px]"
       ref={containerRef}>
       <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
         <motion.h2 className="text-black font-fredoka text-5xl mt-[50px] font-bold text-primary p-[10px] mt-[30px] tracking-widest"
                   initial={{ y: 48, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ ease: "easeInOut", duration: 0.75 }}
+                  viewport={{ once: true }}
         >
           EVENTS
         </motion.h2>
@@ -41,6 +42,7 @@ export const Timeline = ({
         initial={{ y: 48, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.75 }}
+        viewport={{ once: true }}
           className="text-white dark:text-neutral-300 text-sm md:text-base max-w-sm font-fredoka mx-auto">
           I&apos;ve been working on some events for the past 2 years. Here&apos;s
           a timeline of my journey.

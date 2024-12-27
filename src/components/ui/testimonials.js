@@ -106,8 +106,8 @@ export const AnimatedTestimonials = ({
             <p className="text-sm text-gray-500 dark:text-neutral-500">
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
-              {testimonials[active].quote.split(" ").map((word, index) => (
+            <motion.p className="text-base text-gray-500 mt-3 dark:text-neutral-300">
+              {/* {testimonials[active].quote1.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
                   initial={{
@@ -128,7 +128,11 @@ export const AnimatedTestimonials = ({
                   className="inline-block">
                   {word}&nbsp;
                 </motion.span>
-              ))}
+              ))} */}
+              <p className="font-bold text-gray-300">{testimonials[active].quote2}</p>
+              <p>{testimonials[active].quote3}</p>
+              <p>{testimonials[active].quote4}</p>
+              <p>{testimonials[active].quote5}</p>
             </motion.p>
           </motion.div>
           {/* <div className="flex gap-4 pt-12 md:pt-0">

@@ -6,15 +6,19 @@ import {motion, useTransform,useScroll} from "framer-motion"
 import { useRef } from 'react';
 import Mentorship from "./Mentor/Mentorship";
 import { Landing } from "./Landing";
-import Patents from "./Patents";
 import Certificates from "./Certificates";
+import ViewportText from "./Sample";
+
+import project1 from "../Images/project1/1.jpeg"
+import project2 from "../Images/project1/2.jpeg"
+import Education from "./Education";
 
 const projects = [
   {
     title: 'DeskAVR',
     description:
       'Introducing DeskAVR: Elevating recruitment with realistic interviews and AI-driven insights. Get ready to experience the future of hiring!',
-    src: 'https://media.licdn.com/dms/image/v2/D4D2DAQHLv4azVrtWpg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1724084340755?e=1735668000&v=beta&t=Mlae0sXq9OLwKTu5cP4goY2DRMJmyavc_JozVLyPeKU',
+    src: project1,
     link: 'https://images.unsplash.com/photo-1605106702842-01a887a31122?q=80&w=500&auto=format&fit=crop',
     color: '#000000',
   },
@@ -22,16 +26,8 @@ const projects = [
     title: 'DefXV',
     description:
       'DefXV is an AI/ML-integrated AR solution designed to bridge the communication gap for the deaf and mute community. It provides real-time Voice-to-Sign and Sign-to-Voice translations, ensuring seamless communication between sign language users and non-signers.',
-    src: 'https://media.licdn.com/dms/image/v2/D562DAQHW4Txir0O1iw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1727871814480?e=1735668000&v=beta&t=mMxzCr8bWqjeR8-oFgmEcbot4Vg584JKXvb7Ws9b3Kw',
+    src: project2,
     link: 'https://images.unsplash.com/photo-1605106250963-ffda6d2a4b32?w=500&auto=format&fit=crop&q=60',
-    color: '#000000',
-  },
-  {
-    title: 'SpectoV App',
-    description:
-      'As the Founder of SpectoV, I spearheaded the development of this innovative Flutter application designed to transform how users experience augmented reality (AR) and virtual reality (VR). ',
-    src: 'https://media.licdn.com/dms/image/sync/v2/D5627AQFAMPUNVgFQng/articleshare-shrink_800/articleshare-shrink_800/0/1729081653357?e=1735668000&v=beta&t=htT6VCmznKcskf5GQ_n_gSraYb5zWE8O-WPZu5U8wZs',
-    link: 'https://images.unsplash.com/photo-1605106901227-991bd663255c?w=500&auto=format&fit=crop',
     color: '#000000',
   },
   {
@@ -46,6 +42,12 @@ const projects = [
 
 export default function Index() {
 
+  const sectionRef = useRef(null);
+
+  const scrollToSection = () => {
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -58,12 +60,20 @@ export default function Index() {
       <main className="bg-black">
         <div className="wrapper font-poppins !important">
             <Landing/>
-            <section className="bg-[#121212] text-white grid place-content-center h-[100vh] sticky top-0 overflow-hidden">
-            <DragCards/>
+            <p className="text-white">Wanna have a one to one Mentorship with me  <button className="ml-[5px] px-4 py-1 bg-blue-500 text-white rounded" onClick={scrollToSection}>Yes</button></p>
+            <div className="h-[100vh] mt-[150px]"><Education/></div>
+
+            <section className="bg-black text-white grid place-content-center h-[100vh] sticky top-0 overflow-hidden">
+              <motion.div
+              initial={{opacity:0, y:48}}
+              whileInView={{opacity:1,y:0}}
+              transition={{duration:0.5}}
+              viewport={{once:true}}
+              >
+                <DragCards/>
+              </motion.div>
+              
             </section>
-          {/* <section className="text-white  h-screen  w-[100vw] grid place-content-center sticky top-0">
-            
-          </section> */}
         </div>
 
 
@@ -191,9 +201,11 @@ export default function Index() {
           </div>
         </section> */}
 
+
+
         {/* PROJECTS */}
         <div className="bg-black font-poppins !important" ref={container} >
-        <p className="text-black text-5xl font-bold text-primary pt-[50px] tracking-widest">Projects</p>
+        <p className="text-black text-5xl font-bold text-primary pt-[50px] tracking-wider">Projects</p>
           <section className="text-white bg-zinc-950] ">
             {projects.map((project, i) => {
               const targetScale = 1 - (projects.length - i) * 0.05;
@@ -263,16 +275,13 @@ transition={{ duration: 2 }} */}
           </div> */}
         {/* </section> */}
 
-        <section className="h-[100vh] bg-[#000000] text-white grid place-content-center h-screen sticky top-0 overflow-hidden font-poppins !important">
+        <section className="h-[120vh] bg-[#000000] text-white sticky top-0 overflow-hidden font-poppins !important ">
             <div>
-              <div className="w-[80vw] h-[50vh] mb-[50px]"><Certificates/></div>
-              <div className="flex flex-cols gap-[10px] w-[80vw] h-[20vh]">
-              <Patents/>
-              <Patents/>
-              <Patents/>
-              </div>
+              <div className="w-[70vw] h-[50vh] mx-auto mt-[50px]"><Certificates/></div>
+              
+              <ViewportText/>
+              
             </div>
-            
         </section>
         
 
@@ -283,15 +292,17 @@ transition={{ duration: 2 }} */}
 
 
 
-        <section className="text-white h-full bg-black font-poppins !important grid place-content-center sticky top-0">
+        <section
+        ref={sectionRef}
+        className="text-white h-[100vh] bg-black font-poppins !important grid place-content-center sticky top-0">
           <motion.div
-          whileInView={{opacity:1}}
-          initial={{opacity:0}}
-          transition={{duration:3}}
+          whileInView={{opacity:1,y:0}}
+          initial={{opacity:0,y:48}}
+          transition={{duration:2}}
+          viewport={{once:true}}
           >
             <Mentorship/>
           </motion.div>
-            
         </section>
 
             
@@ -341,7 +352,7 @@ const Card = ({
         <h2 className="text-2xl text-center font-semibold">{title}</h2>
         <div className={`flex h-full mt-5 gap-10`}>
           <div className={`w-[40%] relative top-[10%]`}>
-            <p className="text-sm">{description}</p>
+            <p className="text-lg">{description}</p>
             <span className="flex items-center gap-2 pt-2">
               {/* <a
                 href={'#'}

@@ -9,18 +9,21 @@ export default function Education() {
       initial={{ y: 48, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
+      viewport={{ once: true }}
       >Education</motion.p>
       <br/>
       <motion.p className='text-lg'
       initial={{ y: 48, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
+      viewport={{ once: true }}
       
-      >Discover the academic milestones that have shaped my journey and equipped me with the knowledge and skills to excel in computer science and engineering. This section highlights my qualifications, coursework, and learning experiences that form the foundation of my expertise.</motion.p>
+      >Specializing in CSE, I’ve spent the past four years debugging code, tackling complex algorithms, and occasionally wondering if “Hello World” is the pinnacle of all programming. With a CGPA that could double as a movie rating, I’m set to graduate and engineer solutions that might just work on the first try—or the 10th.</motion.p>
       <motion.div
       initial={{ y: 48, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
+      viewport={{ once: true }}
       
       ><AnimatedTestimonialsDemo/></motion.div>
     </div>
