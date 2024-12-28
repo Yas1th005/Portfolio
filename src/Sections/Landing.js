@@ -19,11 +19,15 @@ import { TextGenerateEffectDemo } from "../Each/TextGenerate";
 import linkedin from "../Images/linkedin.png"
 import github from "../Images/github.png"
 import insta from "../Images/instagram.png"
-import threads from "../Images/threads.png"
-import Education from "./Education";
+import youtube from "../Images/youtube.png"
 import TechStack from "./TechStack";
 
-export const Landing = () => {
+export const Landing = ({scrollToSection}) => {
+
+  const sendclick=()=>{
+    scrollToSection()
+  }
+
   return (
     <div className="bg-black">
       <ReactLenis
@@ -37,7 +41,7 @@ export const Landing = () => {
       >
         {/* <Nav /> */}
         <Hero />
-        <Schedule />
+        <Schedule scheduleItem={sendclick} />
         
         
       </ReactLenis>
@@ -159,20 +163,46 @@ const ParallaxImg = ({ className, alt, src, start, end }) => {
   );
 };
 
-const Schedule = () => {
+const Schedule = ({scheduleItem}) => {
+
+  const schedule=()=>{
+    scheduleItem()
+  }
+
   return (
     <section
       id="launch-schedule"
       className="mx-auto px-4 py-12 text-white w-[90vw]"
     >
-      <ScheduleItem/>
+      <ScheduleItem schedule={schedule}/>
     </section>
   );
 };
 
 
 
-const ScheduleItem = () => {
+const ScheduleItem = ({schedule}) => {
+
+  const openlink=(social)=>{
+    if(social === "linkedin"){
+      window.open("https://www.linkedin.com/in/founderspectov/")
+    }
+    else if(social === "github"){
+      window.open("https://github.com/Vanshmani")
+    }
+    else if(social === "instagram"){
+      window.open("https://www.instagram.com/vanshmani.jha")
+    }
+    else{
+      window.open(`https://www.youtube.com/@SpectoV`)
+    }
+    
+  }
+
+  const scrollToSection=()=>{
+    schedule()
+  }
+
   return (
     <div>
     <motion.div
@@ -208,11 +238,12 @@ const ScheduleItem = () => {
           <p className='text-white font-fredoka text-sm'>As a passionate XR Developer, I specialize in creating immersive experiences that transform the way students prepare for their careers. Currently, I’m leading a project called DeskAVR at SpectoV, utilizing Unreal Engine 5 to deliver real-time interview simulations with lifelike metahumans.</p>
           <br/>
           <p className='text-white font-fredoka text-sm'>Previously, I honed my skills as an SDE Intern at Eaccess Telemedics Pvt Ltd, where I contributed to impactful software solutions. I’m also a proud member of the Microsoft for Startups Founders Hub, where I engage with like-minded innovators.</p>
+          {/* <p className="mt-[30px] text-white font-poppins font-bold uppercase">Wanna have a one to one Mentorship with me  <button className="ml-[5px] px-4 py-1 bg-blue-500 text-white rounded" onClick={scrollToSection}>Yes</button></p> */}
           <div className='social'>
-          <img src={linkedin}></img>
-          <img src={github}></img>
-          <img src={insta}></img>
-          <img src={threads}></img>  
+          <img src={linkedin} onClick={()=>openlink("linkedin")} className="hover:cursor-pointer"></img>
+          <img src={github} onClick={()=>openlink("github")} className="hover:cursor-pointer"></img>
+          <img src={insta} onClick={()=>openlink("instagram")} className="hover:cursor-pointer"></img>
+          <img src={youtube} onClick={()=>openlink("youtube")} className="hover:cursor-pointer"></img>  
           </div>
           
 

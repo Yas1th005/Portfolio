@@ -23,6 +23,7 @@ export const DragCards=()=>{
 					<h3 className="flex-1 py-2 text-xs font-semibold leading-snug">As the Founder of SpectoV, I am spearheading the development of DeskAVR, an innovative project aimed at transforming the user experience in augmented and virtual reality (AR/VR) environments. </h3>
 					<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
 						<span>Feb 2024</span>
+						<a href="https://www.spectov.com/" target="_blank">View More</a>
 					</div>
 				</div>
 			</article>
@@ -50,6 +51,7 @@ export const DragCards=()=>{
 					<h3 className="flex-1 py-2 text-xs font-semibold leading-snug">Founder & Ex-President of Augmented and Virtual Reality Club VITC | Virtual Reality (VR) · Augmented Reality (AR) · Mixed Reality · Blockchain · Avatars</h3>
 					<div className="flex flex-wrap justify-between pt-3 space-x-2 text-xs dark:text-gray-600">
 						<span>Jan 2024</span>
+						<a href="https://vr-club-vitc.netlify.app/" target="_blank">View More</a>
 					</div>
 				</div>
 			</article>

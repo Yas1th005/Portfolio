@@ -1,4 +1,6 @@
 const Dashboard = ({ bookings }) => {
+
+
     return (
       <section className="min-h-screen flex flex-col items-center justify-center px-6">
         <h2 className="text-3xl font-semibold text-primary mb-6">Bookings Dashboard</h2>
@@ -21,7 +23,14 @@ const Dashboard = ({ bookings }) => {
                 </div>
               </div>
             ))}
+
+            <button
+              className="w-full bg-primary text-black py-3 rounded-lg"
+            >
+              Request Submitted
+            </button>
           </div>
+          
         )}
       </section>
     );

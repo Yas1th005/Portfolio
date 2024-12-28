@@ -7,18 +7,24 @@ import { useRef } from 'react';
 import Mentorship from "./Mentor/Mentorship";
 import { Landing } from "./Landing";
 import Certificates from "./Certificates";
-import ViewportText from "./Sample";
 
 import project1 from "../Images/project1/1.jpeg"
 import project2 from "../Images/project1/2.jpeg"
+
+import pat1 from "../Images/Patents/1.jpeg";
+import pat2 from "../Images/Patents/2.jpeg";
+import pat3 from "../Images/Patents/3.jpeg";
+
 import Education from "./Education";
+import Patents from "./Patents";
+import Articles from "./Articles";
 
 const projects = [
   {
     title: 'DeskAVR',
     description:
       'Introducing DeskAVR: Elevating recruitment with realistic interviews and AI-driven insights. Get ready to experience the future of hiring!',
-    src: project1,
+    src: project2,
     link: 'https://images.unsplash.com/photo-1605106702842-01a887a31122?q=80&w=500&auto=format&fit=crop',
     color: '#000000',
   },
@@ -26,7 +32,7 @@ const projects = [
     title: 'DefXV',
     description:
       'DefXV is an AI/ML-integrated AR solution designed to bridge the communication gap for the deaf and mute community. It provides real-time Voice-to-Sign and Sign-to-Voice translations, ensuring seamless communication between sign language users and non-signers.',
-    src: project2,
+    src: project1,
     link: 'https://images.unsplash.com/photo-1605106250963-ffda6d2a4b32?w=500&auto=format&fit=crop&q=60',
     color: '#000000',
   },
@@ -59,8 +65,8 @@ export default function Index() {
     <ReactLenis root>
       <main className="bg-black">
         <div className="wrapper font-poppins !important">
-            <Landing/>
-            <p className="text-white">Wanna have a one to one Mentorship with me  <button className="ml-[5px] px-4 py-1 bg-blue-500 text-white rounded" onClick={scrollToSection}>Yes</button></p>
+            <Landing scrollToSection={scrollToSection}/>
+            
             <div className="h-[100vh] mt-[150px]"><Education/></div>
 
             <section className="bg-black text-white grid place-content-center h-[100vh] sticky top-0 overflow-hidden">
@@ -278,8 +284,22 @@ transition={{ duration: 2 }} */}
         <section className="h-[120vh] bg-[#000000] text-white sticky top-0 overflow-hidden font-poppins !important ">
             <div>
               <div className="w-[70vw] h-[50vh] mx-auto mt-[50px]"><Certificates/></div>
+              <motion.div
+              initial={{y:48, opacity:0}}
+              whileInView={{y:0, opacity:1}}
+              transition={{duration:2}}
+              viewport={{once:true}}
+              >
+              <p className="text-3xl font-bold text-primary tracking-wider">Patents of the Year</p>
+              <div className="w-[80vw] mx-auto mt-[20px]">
+                <div className="flex flex-cols gap-[10px] w-[100%] h-[30vh]">
+                  <Patents pic={pat1}/>
+                  <Patents pic={pat2}/>
+                  <Patents pic={pat3}/>
+                </div>
+              </div>
+              </motion.div>
               
-              <ViewportText/>
               
             </div>
         </section>
@@ -291,19 +311,28 @@ transition={{ duration: 2 }} */}
         </section>
 
 
+        <section className="bg-black relative mx-auto flex justify-center items-center">
+            <Articles/>
 
-        <section
-        ref={sectionRef}
-        className="text-white h-[100vh] bg-black font-poppins !important grid place-content-center sticky top-0">
-          <motion.div
-          whileInView={{opacity:1,y:0}}
-          initial={{opacity:0,y:48}}
-          transition={{duration:2}}
-          viewport={{once:true}}
-          >
-            <Mentorship/>
-          </motion.div>
+
+            <footer className="bg-black text-white py-4 text-center bottom-7 absolute">
+          <p className="text-base font-poppins">
+            &copy; {new Date().getFullYear()} SpectoV. All rights reserved.
+          </p>
+        </footer>
         </section>
+
+        
+
+
+
+        {/* <section
+        ref={sectionRef}
+        className="text-white h-[100vh] bg-black font-poppins ! important grid place-content-center sticky top-0">
+          <div>
+            <Mentorship/>
+          </div>
+        </section> */}
 
             
 

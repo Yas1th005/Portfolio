@@ -3,10 +3,36 @@ import { useState } from 'react';
 const BookingForm = ({ onSaveBooking }) => {
   const [formData, setFormData] = useState({ name: '', email: '', date: '', time: '' });
 
+  const sendMail = async (e) => {
+    try {
+        const response = await fetch('http://localhost:5000', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        if (response.ok) {
+            alert('Email sent successfully!');
+        } else {
+          console.log(formData)
+            alert('Failed to send email.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred.');
+    }
+};
+
+  const goback=()=>{
+    onSaveBooking();
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     onSaveBooking(formData);
-    setFormData({ name: '', email: '', date: '', time: '' }); // Reset form
+    sendMail(formData);
+    setFormData({ name: '', email: '', date: '', time: '' });
   };
 
   return (
@@ -51,6 +77,12 @@ const BookingForm = ({ onSaveBooking }) => {
           className="w-full bg-primary text-black py-3 rounded-lg hover:bg-secondary hover:text-white transition"
         >
           Submit
+        </button>
+        <button
+          onClick={()=>goback()}
+          className="w-full bg-primary text-black py-3 rounded-lg hover:bg-secondary hover:text-white transition"
+        >
+          Go back
         </button>
       </form>
     </section>

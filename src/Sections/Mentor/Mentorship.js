@@ -9,8 +9,14 @@ const Mentorship = () => {
 
   const handleStartBooking = () => setStep('booking');
   const handleSaveBooking = (booking) => {
-    setBookings([...bookings, booking]);
-    setStep('dashboard');
+    if(booking){
+      setBookings([...bookings, booking]);
+      setStep('dashboard');
+    }
+    else{
+      setStep('landing');
+    }
+    
   };
 
   return (
